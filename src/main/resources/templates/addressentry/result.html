@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Address Book Site</title>
+	<th:block th:replace="/fragments/styling :: head-style" ></th:block>
+  </head>
+  <body>
+  	<div class="container">
+  	<div th:replace="fragments/navbar :: navbar" ></div>
+    
+	  <div class="row">
+	    <div class="col-md-12">
+	      <div class="panel panel-primary">
+	        <div class="panel-heading">
+		  <h1 th:text="${addressEntry.firstName}"></h1>
+		  <h1 th:text="${addressEntry.lastName}"></h1>
+		</div>
+		<div class="panel-body">
+			<strong th:text="${addressEntry.phoneNumber}"></strong>
+			<p th:text="${addressEntry.emailAddress}" />
+		</div>
+		<div class="panel-footer">
+		  <a href="#" th:href="@{/addressentries/{id}(id=${addressEntry.id})}"><button class="btn btn-info">Edit Entry</button></a>
+		  <a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+		  <a th:href="@{/addressentries/new}"><button class="btn btn-primary">Submit a New Address Entry</button></a>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div th:replace="/fragments/styling :: body-links" ></div>
+  </body>
+</html>

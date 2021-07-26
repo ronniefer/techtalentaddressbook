@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Edit Address Book</title>
+    <th:block th:replace="/fragments/styling :: head-style" ></th:block>
+  </head>
+  <body>
+  	<div class="container">
+  	<div th:replace="fragments/navbar :: navbar" ></div>
+  		<h1>Edit Entry</h1>
+	  	<form action="#" th:action="@{/addressentries/update/{id}(id=${addressEntry.id})}" th:object="${addressEntry}" method="post">
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{firstName}" />			
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{lastName}" />			
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{phoneNumber}" />			
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="*{emailAddress}" />			
+			</div>
+			<button class="btn btn-primary">Submit Your Edit</button>												
+		</form>
+		  
+	</div>
+	<div th:replace="/fragments/styling :: body-links" ></div>
+  </body>
+</html>
